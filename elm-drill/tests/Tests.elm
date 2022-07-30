@@ -29,7 +29,7 @@ suite =
         , T4_Tuples.suite
         , T5_Records.suite
         , T6_Functions.suite
-        , only T7_Lists.suite
+        , T7_Lists.suite
         , T8_Maybes.suite
         , T9_CustomTypes.suite
         , T10_Decoders.suite

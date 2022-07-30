@@ -45,28 +45,27 @@ intDecoder =
 -}
 floatDecoder : Decoder Float
 floatDecoder =
-    D.fail "TODO"
-
+    D.float
 
 {-| `"hello"` という JSON 値を String に変換するデコーダーです
 -}
 stringDecoder : Decoder String
 stringDecoder =
-    D.fail "TODO"
+    D.string
 
 
 {-| `[ "foo", "bar" ]` という JSON 値を List String に変換するデコーダーです
 -}
 namesDecoder : Decoder (List String)
 namesDecoder =
-    D.fail "TODO"
+    D.list D.string
 
 
 {-| `{ flag: true }` という JSON オブジェクトの `flag` 値を Bool で取得するデコーダーです
 -}
 flagDecoder : Decoder Bool
 flagDecoder =
-    D.fail "TODO"
+    D.field "flag" D.bool
 
 
 type alias Point =
@@ -77,7 +76,7 @@ type alias Point =
 -}
 pointDecoder : Decoder Point
 pointDecoder =
-    D.fail "TODO"
+    D.map2 Point (D.field "x" D.float) (D.field "y" D.float)
 
 
 {-| `[{ x: 1.0, y: 2.0 }, { x: 3.0, y: 4.0 }]` という JSON オブジェクトを
@@ -85,7 +84,7 @@ List Point 型に変換するデコーダーです
 -}
 pointListDecoder : Decoder (List Point)
 pointListDecoder =
-    D.fail "TODO"
+    D.list pointDecoder
 
 
 type alias Message a =
@@ -101,7 +100,10 @@ JSON オブジェクトを Message 型に変換するデコーダーです。
 -}
 messageDecoder : Decoder a -> Decoder (Message a)
 messageDecoder contentDecoder =
-    D.fail "TODO"
+    D.map3 Message
+        (D.field "createdAt" D.float)
+        (D.field "createdBy" D.string)
+        (D.field "content" contentDecoder)
 
 
 {-| `{ createdAt: 1510640519671, createdBy: "jinjor", content: ? }` という
@@ -110,4 +112,4 @@ JSON オブジェクトを Message 型に変換するデコーダーです。
 -}
 customMessageDecoder : Decoder (Message Json.Encode.Value)
 customMessageDecoder =
-    D.fail "TODO"
+    messageDecoder D.value
