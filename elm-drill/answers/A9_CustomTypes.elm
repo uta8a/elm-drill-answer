@@ -39,7 +39,7 @@ listGreetings : (Language -> String) -> List ( Language, String )
 listGreetings toGreeting =
     [ Ja, En, Fr ]
         |> List.map (\lang -> ( lang, greet lang ))
--- toGreeting使わないのかな？greetをtoGreetingにしてもいいかも
+-- toGreeting使わないのかな？いらないので消していいかも
 
 {-| 訪問中のユーザーに表示するメッセージを返します
 -}
