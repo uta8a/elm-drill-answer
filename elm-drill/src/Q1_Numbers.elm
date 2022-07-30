@@ -24,35 +24,34 @@ increment n =
 -}
 decrement : Int -> Int
 decrement n =
-    Debug.todo "TODO"
+    n - 1
 
 
 {-| a と b を足し算して返します
 -}
 add : Int -> Int -> Int
 add a b =
-    Debug.todo "TODO"
+    a + b
 
 
 {-| a と b を掛け算して返します
 -}
 multiply : Float -> Float -> Float
 multiply a b =
-    Debug.todo "TODO"
+    a * b
 
 
 {-| a を b で割ります
 -}
 divide : Float -> Float -> Float
 divide a b =
-    Debug.todo "TODO"
-
+    a / b
 
 {-| a を b で割り、余りを切り捨てます
 -}
 divideInt : Int -> Int -> Int
 divideInt a b =
-    Debug.todo "TODO"
+    a // b
 
 
 {-| 2倍します。
@@ -60,4 +59,4 @@ number は Int と Float のどちらかであることを表します。
 -}
 double : number -> number
 double n =
-    Debug.todo "TODO"
+    2 * n
