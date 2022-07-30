@@ -25,7 +25,7 @@ greet isJapanese =
         "こんにちは"
 
     else
-        Debug.todo "TODO"
+        "Hello"
 
 
 {-| ２ヶ国語の挨拶で誰かに呼びかけています。
@@ -39,7 +39,7 @@ greetSomeone isJapanese name =
                 "こんにちは"
 
             else
-                Debug.todo "TODO"
+                "Hello"
     in
     greeting ++ ", " ++ name
 
@@ -52,7 +52,7 @@ formatTime ( hour, minute ) =
         pad =
             String.padLeft 2 '0'
     in
-    Debug.todo "TODO"
+    (pad (String.fromInt hour)) ++ ":" ++ (pad (String.fromInt minute))
 
 
 {-| `String.trim`, `String.toUpper`, `String.reverse` を連続して適用します。
@@ -66,14 +66,14 @@ trimAndToUpperAndReverse s =
 -}
 trimAndToUpperAndReverseWithoutParens : String -> String
 trimAndToUpperAndReverseWithoutParens s =
-    Debug.todo "(function)" <| Debug.todo "(function)" <| Debug.todo "(function)" s
+    String.reverse <| String.toUpper <| String.trim s
 
 
 {-| `<<` を使うと関数を合成できます
 -}
 trimAndToUpperAndReverseComposed : () -> String -> String
 trimAndToUpperAndReverseComposed _ =
-    Debug.todo "(function)" << Debug.todo "(function)" << Debug.todo "(function)"
+    String.trim << String.toUpper << String.reverse
 
 
 {-| `|>` を使うと左から右（上から下）に読むことができます
@@ -81,18 +81,18 @@ trimAndToUpperAndReverseComposed _ =
 trimAndToUpperAndReverseLeftToRight : String -> String
 trimAndToUpperAndReverseLeftToRight s =
     s
-        |> Debug.todo "(function)"
-        |> Debug.todo "(function)"
-        |> Debug.todo "(function)"
+        |> String.trim
+        |> String.toUpper
+        |> String.reverse
 
 
 {-| `>>` を使うと左から右に読めるように合成できます
 -}
 trimAndToUpperAndReverseLeftToRightComposed : () -> String -> String
 trimAndToUpperAndReverseLeftToRightComposed _ =
-    Debug.todo "(function)"
-        >> Debug.todo "(function)"
-        >> Debug.todo "(function)"
+    String.trim
+        >> String.toUpper
+        >> String.reverse
 
 
 {-| 階乗を計算します。(n >= 0)
@@ -115,7 +115,7 @@ factorial n =
         1
 
     else
-        Debug.todo "TODO"
+        n * (factorial (n-1))
 
 
 {-| フィボナッチ数を計算します
@@ -134,14 +134,17 @@ fibonacci n =
         1
 
     else
-        Debug.todo "TODO"
+        fibonacci (n-1) + fibonacci (n-2)
 
 
 {-| 1 から n までの和を計算します
 -}
 series : Int -> Int
 series n =
-    Debug.todo "TODO"
+    if n == 0 then
+        0
+    else
+        n + series (n-1)
 
 
 {-| 1 から n までの和を計算します。
@@ -159,4 +162,4 @@ series2Help sum n =
         sum
 
     else
-        Debug.todo "TODO"
+        series2Help (sum + n) (n-1)
