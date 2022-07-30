@@ -15,18 +15,21 @@ import Test exposing (..)
 
 
 {-| 次のテストに進むには、 `only` を付け替えてください。
+```
+only T1_Numbers.suite
+```
 （または、実行したくないテストに `skip` をつけます。）
 -}
 suite : Test
 suite =
     describe "All"
-        [ only T1_Numbers.suite
+        [ T1_Numbers.suite
         , T2_Booleans.suite
         , T3_Strings.suite
         , T4_Tuples.suite
         , T5_Records.suite
         , T6_Functions.suite
-        , T7_Lists.suite
+        , only T7_Lists.suite
         , T8_Maybes.suite
         , T9_CustomTypes.suite
         , T10_Decoders.suite
