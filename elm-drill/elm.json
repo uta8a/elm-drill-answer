@@ -1,6 +1,6 @@
 {
   "type": "application",
-  "source-directories": ["src", "tests", "answers"],
+  "source-directories": ["src", "answers"],
   "elm-version": "0.19.0",
   "dependencies": {
     "direct": {
