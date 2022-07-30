@@ -162,4 +162,4 @@ series2Help sum n =
         sum
 
     else
-        series2Help (sum + n) (n-1)
+        series2Help (sum + n) (n - 1)
